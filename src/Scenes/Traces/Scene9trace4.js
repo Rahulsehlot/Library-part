@@ -1,16 +1,18 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Scene9AssetMapScreen4 = {
   id: "Scene9screen4",
 
+  Bg: `${imgUrl}texture_bg_green.svg`,
+
   sprites: [
-    `${imgUrl}Scene6_Images/3.svg`,
-    `${imgUrl}Scene6_Images/Text_04.svg`,
+    `${imgUrl}scene6_images/3.svg`,
+    `${imgUrl}scene6_images/text_04.svg`,
   ],
 
-  sounds: [`${soundUrl}Scene8_Audio/4.mp3`],
+  sounds: [`${soundUrl}scene8_audio/4.mp3`],
 
   lottie: [],
 };

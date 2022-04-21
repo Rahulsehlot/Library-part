@@ -1,24 +1,24 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Scene10Map = {
   id: "scene10",
 
-  Bg: `${imgUrl}SB_19_Library_Bg.svg`,
+  Bg: `${imgUrl}sb_19_library_bg.svg`,
 
   sprites: [
-    `${imgUrl}SB_19_Library_Fg.svg`,
-    `${imgUrl}SB_19_Library_Bg_Text.svg`,
-    `${imgUrl}Asset_2.svg`,
+    `${imgUrl}sb_19_library_fg.svg`,
+    `${imgUrl}sb_19_library_bg_text.svg`,
+    `${imgUrl}asset_2.svg`,
   ],
 
-  sounds: [`${soundUrl}Game4_Audio/EP_19_Audio_47.mp3`],
+  sounds: [`${soundUrl}game4_audio/ep_19_audio_47.mp3`],
 
   lottie: [
-    `${lottieUrl}SB_19_Scene_45_ch.json`,
-    `${lottieUrl}SB_19_Scene_45_eyeblink_01.json`,
-    `${lottieUrl}SB_19_Scene_45_eyeblink_02.json`,
+    `${lottieUrl}sb_19_scene_45_ch.json`,
+    `${lottieUrl}sb_19_scene_45_eyeblink_01.json`,
+    `${lottieUrl}sb_19_scene_45_eyeblink_02.json`,
   ],
 };
 

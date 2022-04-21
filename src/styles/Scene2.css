@@ -1,9 +1,0 @@
-.Scene2_lottie_container {
-  position: fixed;
-  left: 10%;
-  bottom: 10%;
-  width: 25%;
-  height: 70%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-}

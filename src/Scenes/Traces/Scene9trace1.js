@@ -1,21 +1,19 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Scene9AssetMapScreen1 = {
   id: "Scene9screen1",
 
-  Bg: `${imgUrl}Texture_BG_Green.svg`,
+  Bg: `${imgUrl}texture_bg_green.svg`,
 
   sprites: [
-    `${imgUrl}Scene6_Images/1.svg`,
-    `${imgUrl}Scene6_Images/Text_01.svg`,
-    `${imgUrl}backward.svg`,
+    `${imgUrl}scene6_images/1.svg`,
+    `${imgUrl}scene6_images/text_01.svg`,
     `${imgUrl}forward.svg`,
-    `${imgUrl}Scene6_Images/SB_19_TI_Library_Rules_Text.svg`,
   ],
 
-  sounds: [`${soundUrl}Scene8_Audio/1.mp3`],
+  sounds: [`${soundUrl}scene8_audio/1.mp3`],
 
   lottie: [],
 };

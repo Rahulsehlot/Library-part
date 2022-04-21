@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -7,39 +7,47 @@ import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
-import Scene5Map from "../Scene5-Body/Scene5AssetMap";
 
-export default function WellDone1({ scenename }) {
+export default function WellDone({ scenename, BG_sound, setCount }) {
+  // const Next = useLoadAsset(Scene5Map);
+
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
+  const [playing, setplaying] = useState(false);
 
-  const Ref = useRef(null);
   const Ref1 = useRef(null);
   const Ref2 = useRef(null);
 
-  useEffect(() => {
-    if (Assets?.Welldone) {
-      Assets?.Welldone?.sounds[1]?.play();
-      Assets?.Welldone?.sounds[1]?.on("end", () => {
-        Assets?.Welldone?.sounds[2]?.play();
-        Assets?.Welldone?.sounds[1]?.on("end", () => {
-          lottie.stop("character_Lottie");
-        });
-      });
-    }
-  }, []);
+  const stop_all_sounds = () => {
+    Assets[scenename]?.sounds?.map((v) => v?.stop());
+  };
 
   useEffect(() => {
-    if (Assets && Ref.current) {
+    if (isLoading === false) {
       setBg(Assets?.Welldone?.Bg);
+      if (Assets?.Welldone) {
+        setplaying(true);
+        Assets?.Welldone?.sounds[0]?.play();
+        Assets?.Welldone?.sounds[0]?.on("end", () => {
+          Assets?.Welldone?.sounds[1]?.play();
+          Assets?.Welldone?.sounds[1]?.on("end", () => {
+            setplaying(false);
+          });
+        });
+      }
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (Assets && Ref1.current) {
       try {
         lottie.loadAnimation({
-          name: "character_Lottie",
-          container: Ref.current,
+          name: "placeholder",
+          container: Ref1.current,
           renderer: "svg",
-          loop: false,
+          loop: true,
           autoplay: true,
           animationData: Assets?.Welldone?.lottie[0],
         });
@@ -48,13 +56,12 @@ export default function WellDone1({ scenename }) {
       }
     }
   }, []);
-
   useEffect(() => {
-    if (Assets && Ref.current) {
+    if (Assets && Ref2.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
-          container: Ref1.current,
+          container: Ref2.current,
           renderer: "svg",
           loop: true,
           autoplay: true,
@@ -65,25 +72,13 @@ export default function WellDone1({ scenename }) {
       }
     }
   }, []);
-  useEffect(() => {
-    if (Assets && Ref.current) {
-      try {
-        lottie.loadAnimation({
-          name: "placeholder",
-          container: Ref2.current,
-          renderer: "svg",
-          loop: true,
-          autoplay: true,
-          animationData: Assets?.Welldone?.lottie[2],
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }, []);
 
-  const replay = () => {
-    setSceneId("/");
+  const forward = () => {
+    if (playing === false) {
+      stop_all_sounds();
+      setCount(0);
+      setSceneId("/");
+    }
   };
 
   return (
@@ -92,8 +87,6 @@ export default function WellDone1({ scenename }) {
       sprites={
         <>
           {/* Title */}
-
-          <div ref={Ref} className="WellDone_lottie_container"></div>
           <div ref={Ref1} className="text_lottie_container"></div>
           <div ref={Ref2} className="particles_lottie_container"></div>
 
@@ -102,7 +95,7 @@ export default function WellDone1({ scenename }) {
             alt="txt"
             id="fadeup"
             className="ReplayBTN"
-            onClick={replay}
+            onClick={forward}
             style={{ cursor: "pointer" }}
           />
         </>
