@@ -13,7 +13,7 @@ const Scene10Map = {
     `${imgUrl}asset_2.svg`,
   ],
 
-  sounds: [`${soundUrl}game4_audio/ep_19_audio_47.mp3`],
+  sounds: [`${soundUrl}ep_19_audio_47.mp3`],
 
   lottie: [
     `${lottieUrl}sb_19_scene_45_ch.json`,

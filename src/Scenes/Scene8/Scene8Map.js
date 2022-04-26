@@ -17,7 +17,7 @@ const Scene8Map = {
     `${imgUrl}skip_btn.svg`,
   ],
 
-  sounds: [`${soundUrl}scene8_audio/ep_19_audio_41.mp3`],
+  sounds: [`${soundUrl}ep_19_audio_41.mp3`],
 
   lottie: [
     `${lottieUrl}character_with_lip_sync_library.json`,

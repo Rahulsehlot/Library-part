@@ -9,23 +9,13 @@ import { BGContext } from "../../contexts/Background";
 import Scene9AssetMapScreen1 from "../Traces/Scene9trace1";
 import Game3Trace1Map from "../Traces/Game3Trace1";
 
-export default function Scene10({
-  scenename,
-  assetID,
-  preLoad,
-  prevScene,
-  hideNxt,
-  hide,
-}) {
+export default function Scene10({ assetID }) {
   const { Loading } = useLoadAsset(Game3Trace1Map);
   const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
 
-  const stop_all_sounds = () => {
-    Assets?.[assetID]?.sounds?.map((v) => v?.stop());
-  };
   // setBg(Scene3screen1?.Bg);
 
   useEffect(() => {
@@ -94,7 +84,6 @@ export default function Scene10({
     }
   }, []);
   const forward = () => {
-    stop_all_sounds();
     setSceneId("/Game3Screen1");
   };
 
