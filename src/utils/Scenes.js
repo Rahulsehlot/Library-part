@@ -4,7 +4,8 @@ import { SceneContext } from "../contexts/SceneContext";
 // import apple from "./apple.svg"
 
 export default function Scenes({ sprites, Bg = "" }) {
-  const { setSceneId, setisLoading, isLoading } = useContext(SceneContext);
+  const { setSceneId, setisLoading, isLoading, Ipad, setIpad } =
+    useContext(SceneContext);
 
   return (
     <div id="vision">
@@ -13,6 +14,7 @@ export default function Scenes({ sprites, Bg = "" }) {
           className="Bg_Image"
           id="vision"
           alt="background"
+          style={{ transform: Ipad ? "scale(1.5)" : "" }}
           src={`data:image/svg+xml;utf8,${encodeURIComponent(Bg)}`}
         />
       )}

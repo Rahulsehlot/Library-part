@@ -3,7 +3,7 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import lottie from "lottie-web";
-import "../../styles/Scene3.css";
+import "../../styles/Game1.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 import Scene9AssetMapScreen1 from "../Traces/Scene9trace1";
