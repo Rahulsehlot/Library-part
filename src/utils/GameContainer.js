@@ -3,7 +3,7 @@ import { SceneContext } from "./../contexts/SceneContext";
 import { useContext } from "react";
 
 export default function GameContainer({ children, LandScape, setLandScape }) {
-  const [scale, setscale] = useState((window.innerWidth * 0.67) / 1000);
+  const [scale, setscale] = useState((window.innerWidth * 0.75) / 1000);
   const { Ipad } = useContext(SceneContext);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function GameContainer({ children, LandScape, setLandScape }) {
   }, []);
 
   const onResize = () => {
-    const scale = (window.innerWidth * 0.67) / 1000;
+    const scale = (window.innerWidth * 0.75) / 1000;
     setscale(scale);
   };
 
