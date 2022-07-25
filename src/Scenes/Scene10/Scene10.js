@@ -16,8 +16,6 @@ export default function Scene10({ assetID }) {
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
 
-  // setBg(Scene3screen1?.Bg);
-
   useEffect(() => {
     if (isLoading === false) {
       setBg(Assets?.scene10?.Bg);
@@ -146,15 +144,6 @@ export default function Scene10({ assetID }) {
             id="fadeup"
             className="Scene10_container_1"
           />
-
-          {/* <Image
-            src={Assets?.Scene9screen1?.sprites[3]}
-            alt="txt"
-            id="fadeup"
-            className="next"
-            onClick={forward}
-            style={{ cursor: "pointer" }}
-          /> */}
         </>
       }
     />

@@ -54,7 +54,6 @@ export default function Scene9({
   const stop_all_sounds = () => {
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
   };
-  // setBg(Scene3screen1?.Bg);
 
   useEffect(() => {
     if (isLoading === false) {
