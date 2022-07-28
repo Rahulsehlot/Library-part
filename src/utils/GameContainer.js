@@ -1,40 +1,54 @@
-import { useEffect, useState } from "react";
-import { SceneContext } from "./../contexts/SceneContext";
-import { useContext } from "react";
-
+import { useEffect, useState } from 'react';
+import { SceneContext } from './../contexts/SceneContext';
+import { useContext } from 'react';
+const wrh = 1920 / 900
 export default function GameContainer({ children, LandScape, setLandScape }) {
-  const [scale, setscale] = useState((window.innerWidth * 0.75) / 1000);
-  const { Ipad } = useContext(SceneContext);
-
+  const [scale, setScale] = useState(1);
+  const [newWidth, setNewWidth] = useState(window.innerWidth)
+  const [newHeight, setNewHeight] = useState(newWidth / wrh)
   useEffect(() => {
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
+    if (newHeight > window.innerHeight) {
+      setNewWidth((window.innerHeight) * wrh)
+      setNewHeight(window.innerHeight)
+    }
+  }, [newHeight])
 
   const onResize = () => {
-    const scale = (window.innerWidth * 0.75) / 1000;
-    setscale(scale);
-  };
+    setNewWidth(window.innerWidth)
+    setNewHeight(window.innerWidth / wrh)
 
-  return (
-    <div className="vendorWrapper">
-      <div
-        className="playHold"
-        style={{
-          position: "absolute",
-          width: "1920px",
-          height: "900px",
-          transformOrigin: "210px 900px",
-          left: "-210px",
-          bottom: "0px",
-          transform: `scale(${scale})`,
-          overflow: Ipad ? "" : "hidden",
-        }}
-      >
-        {!LandScape && children}
-      </div>
+    const currentScreenAspectRatio = window.innerWidth / window.innerHeight
+
+    if (currentScreenAspectRatio > wrh) {
+      // ultra wide screen
+      const newWidth = window.innerHeight * wrh
+      setScale(window.innerWidth / newWidth)
+    } else {
+      const newHeight = window.innerWidth / wrh
+      setScale(window.innerHeight / newHeight)
+    }
+  }
+  useEffect(() => {
+    onResize()
+    window.addEventListener("resize", onResize)
+
+    return () => {
+      window.removeEventListener("resize", onResize)
+      // clearInterval(interval)
+    }
+  }, [])
+  return <div className="vendorWrapper">
+    <div className="playHold" style={{
+      position: "fixed",
+      width: `${newWidth}px`,
+      height: `${newHeight}px`,
+      top: "50%",
+      left: "50%",
+      transform: `translate(-50%, -50%) scale(${scale})`,
+      overflow: "hidden"
+    }}>
+      {!LandScape && children}
+
     </div>
-  );
+  </div>
 }

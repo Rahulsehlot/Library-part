@@ -122,12 +122,15 @@ export default function Scene9({
             id="fadeup"
             className="Questions"
           />
-          <Image
-            src={Assets?.[assetID]?.sprites[1]}
-            alt="txt"
-            id="fadeup"
-            className="Questions_Text"
-          />
+          <div className="Questions_text__container">
+
+            <Image
+              src={Assets?.[assetID]?.sprites[1]}
+              alt="txt"
+              id="fadeup"
+              className="Questions_Text3"
+            />
+          </div>
 
           <Image
             src={Assets?.Scene9screen1?.sprites[2]}

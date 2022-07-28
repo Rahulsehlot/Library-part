@@ -11,6 +11,7 @@ const Scene9AssetMapScreen1 = {
     `${imgUrl}scene6_images/1.svg`,
     `${imgUrl}scene6_images/text_01.svg`,
     `${imgUrl}forward.svg`,
+    `${imgUrl}backward.svg`,
   ],
 
   sounds: [`${soundUrl}scene8_audio/1.mp3`],
