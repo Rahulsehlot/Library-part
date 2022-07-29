@@ -11,7 +11,7 @@ import { BGContext } from "../../contexts/Background";
 export default function WellDone({ scenename, BG_sound, setCount }) {
   // const Next = useLoadAsset(Scene5Map);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setHideAllButtons } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
@@ -25,6 +25,7 @@ export default function WellDone({ scenename, BG_sound, setCount }) {
   };
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (isLoading === false) {
       setBg(Assets?.Welldone?.Bg);
       if (Assets?.Welldone) {

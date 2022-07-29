@@ -4,7 +4,7 @@ import Image from "../../utils/elements/Image";
 import useLoadAsset from "../../utils/useLoadAsset";
 
 export default function Star({ num }) {
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setisLoading, hideAllButtons] = useState(true);
   const { Assets } = useContext(SceneContext);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function Star({ num }) {
 
   return (
     <>
-      <div className="progress-bar-container" id='progressBarID'>
+      <div className="progress-bar-container" id='progressBarID' style={{ visibility: hideAllButtons ? 'hidden' : 'visible' }}>
         <Image
           src={Assets?.scene8?.sprites[3]}
           alt="txt"

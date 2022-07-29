@@ -44,7 +44,7 @@ export default function Scene9({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, setisTransition, setHideAllButtons } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
 
@@ -82,6 +82,7 @@ export default function Scene9({
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -92,8 +93,10 @@ export default function Scene9({
         animationData: Assets?.scene8?.lottie[3],
         speed: 1,
       });
+      setisTransition(true)
     }
     setTimeout(() => {
+      setisTransition(false)
       setisLoading(false);
     }, 1500);
   }, [isLoading]);
@@ -132,7 +135,7 @@ export default function Scene9({
             />
           </div>
 
-          <Image
+          {/* <Image
             src={Assets?.Scene9screen1?.sprites[2]}
             alt="txt"
             id="fadeup"
@@ -147,7 +150,7 @@ export default function Scene9({
             className="forward"
             onClick={forward}
             style={{ display: hideNxt === 1 ? "none" : "block" }}
-          />
+          /> */}
         </>
       }
     />

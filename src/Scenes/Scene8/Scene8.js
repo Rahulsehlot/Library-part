@@ -17,7 +17,7 @@ export default function Scene8({
   hide,
 }) {
   const { Loading } = useLoadAsset(Scene9AssetMapScreen1);
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, setHidePlayButton, setisTransition, setHideAllButtons } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [playing, setplaying] = useState(false);
@@ -91,6 +91,7 @@ export default function Scene8({
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -147,6 +148,7 @@ export default function Scene8({
             id="fadeup"
             onClick={() => {
               SetplayBtnHide(1);
+              setHidePlayButton(true)
               lottie.play("placeholder");
               if (playing === false) {
                 setautoPLayState(true);
@@ -170,7 +172,7 @@ export default function Scene8({
             }}
           />
 
-          <Image
+          {/* <Image
             src={Assets?.scene8?.sprites[6]}
             alt="txt"
             id="fadeup"
@@ -183,7 +185,7 @@ export default function Scene8({
             style={{
               display: playBtnHide === 1 ? "block" : "none",
             }}
-          />
+          /> */}
         </>
       }
     />

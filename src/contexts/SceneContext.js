@@ -5,6 +5,7 @@ export const SceneContext = createContext();
 export default function SceneContextProvider({ children }) {
   const [SceneId, setSceneId] = useState("/");
   const [isLoading, setisLoading] = useState(true);
+  const [isTransition, setisTransition] = useState(false);
   // state to manage sounds and images for each scene
   const [Assets, setAssets] = useState({});
   const [Starz, setStarz] = useState(0);
@@ -12,7 +13,9 @@ export default function SceneContextProvider({ children }) {
   const [count, setcount] = useState(0);
   const [Ipad, setIpad] = useState(false);
   const [LandScape, setLandScape] = useState(false);
+  const [hidePlayButton, setHidePlayButton] = useState(false);
   const [transition, setTransition] = useState(null);
+  const [hideAllButtons, setHideAllButtons] = useState(true)
   // loading part
   useEffect(() => {
     setTimeout(() => {
@@ -40,7 +43,13 @@ export default function SceneContextProvider({ children }) {
         Ipad,
         setIpad,
         transition,
-        setTransition
+        setTransition,
+        hidePlayButton,
+        setHidePlayButton,
+        isTransition,
+        setisTransition,
+        hideAllButtons,
+        setHideAllButtons
       }}
     >
       {children}

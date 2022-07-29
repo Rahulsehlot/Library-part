@@ -4,7 +4,8 @@ import { SceneContext } from "../contexts/SceneContext";
 // import apple from "./apple.svg"
 import lottie from 'lottie-web';
 export default function Scenes({ sprites, Bg = "" }) {
-  const { setSceneId, setisLoading, isLoading, Ipad, setIpad, transition } =
+  const { setSceneId, setisLoading, isLoading, Ipad, setIpad, transition, isTransition,
+    setisTransition } =
     useContext(SceneContext);
   const containerRef2 = useRef(null);
   useEffect(() => {
@@ -18,7 +19,6 @@ export default function Scenes({ sprites, Bg = "" }) {
         animationData: transition,
       });
       ch.setSpeed(0.9)
-      ch.play()
       ch.addEventListener('complete', () => {
         setisLoading(false)
       })

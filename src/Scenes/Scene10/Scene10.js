@@ -11,7 +11,7 @@ import Game3Trace1Map from "../Traces/Game3Trace1";
 
 export default function Scene10({ assetID }) {
   const { Loading } = useLoadAsset(Game3Trace1Map);
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, setHideAllButtons } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
@@ -88,6 +88,7 @@ export default function Scene10({ assetID }) {
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
