@@ -16,6 +16,8 @@ export default function SceneContextProvider({ children }) {
   const [hidePlayButton, setHidePlayButton] = useState(false);
   const [transition, setTransition] = useState(null);
   const [hideAllButtons, setHideAllButtons] = useState(true)
+  const [hideSkipButton, setHideSkipButton] = useState(false)
+
   // loading part
   useEffect(() => {
     setTimeout(() => {
@@ -49,7 +51,7 @@ export default function SceneContextProvider({ children }) {
         isTransition,
         setisTransition,
         hideAllButtons,
-        setHideAllButtons
+        setHideAllButtons, hideSkipButton, setHideSkipButton
       }}
     >
       {children}

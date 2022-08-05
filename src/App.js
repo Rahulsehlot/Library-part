@@ -35,7 +35,7 @@ function App() {
   }
   const Asset = useLoadAsset(Scene8Map);
 
-  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape, setTransition, Assets, isLoading, setSceneId, hidePlayButton, transition, isTransition, hideAllButtons } =
+  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape, setTransition, Assets, isLoading, setSceneId, hidePlayButton, transition, isTransition, hideAllButtons, hideSkipButton, setHideSkipButton } =
     useContext(SceneContext);
   const [count, setCount] = useState(0);
 
@@ -47,7 +47,7 @@ function App() {
   const [playing, setplaying] = useState(false);
   const [hidePrevButton, setHidePrevButton] = useState(true)
   const [hideNextButton, setNextPrevButton] = useState(true)
-  const [hideSkipButton, setHideSkipButton] = useState(false)
+
   const loadLottie = async () => {
     // const data = await LoadJson(`ee02_nt_1to10_srn/lottie/transition_01.json`);
     const data = await LoadJson(`ee03_ow_tnb_pl3/lottie/1transition.json`);
@@ -191,7 +191,8 @@ function App() {
           setSceneId("/Scene9Screen1");
         }}
         style={{
-          display: hidePlayButton && !isLoading && !hideAllButtons && !hideSkipButton ? "block" : "none",
+          display: hidePlayButton && !hideAllButtons && !hideSkipButton ? "block" : "none",
+          visibility: LandScape ? 'hidden' : 'visible'
         }}
       />
       <div style={{ opacity: LandScape ? 0 : 1 }}>

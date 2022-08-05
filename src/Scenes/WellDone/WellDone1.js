@@ -11,7 +11,7 @@ import { BGContext } from "../../contexts/Background";
 export default function WellDone({ scenename, BG_sound, setCount }) {
   // const Next = useLoadAsset(Scene5Map);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setHideAllButtons } =
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setHideAllButtons, setHidePlayButton, setHideSkipButton } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
@@ -79,6 +79,9 @@ export default function WellDone({ scenename, BG_sound, setCount }) {
       stop_all_sounds();
       setCount(0);
       setSceneId("/");
+      setHidePlayButton(false)
+      setHideAllButtons(true)
+      setHideSkipButton(false)
     }
   };
 

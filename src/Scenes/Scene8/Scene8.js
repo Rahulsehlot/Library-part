@@ -17,7 +17,7 @@ export default function Scene8({
   hide,
 }) {
   const { Loading } = useLoadAsset(Scene9AssetMapScreen1);
-  const { SceneId, setSceneId, Assets, setAssets, setHidePlayButton, setisTransition, setHideAllButtons } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, setHidePlayButton, setisTransition, setHideAllButtons, hideSkipButton, setHideSkipButton } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [playing, setplaying] = useState(false);
@@ -157,6 +157,7 @@ export default function Scene8({
                   Assets?.scene8?.sounds[0]?.play();
                   Assets?.scene8?.sounds[0]?.on("end", () => {
                     setSceneId("/Scene9Screen1");
+                    setHideSkipButton(true)
                     setplaying(false);
                   });
                 }
